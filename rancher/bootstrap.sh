@@ -1,0 +1,1 @@
+sudo docker run -e "CATTLE_AGENT_IP=`ifconfig eth0 | awk '/inet addr/{print substr($2,6)}'`" -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:$1 $2
